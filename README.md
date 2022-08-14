@@ -1,4 +1,4 @@
-# unet-censo-covir-frontend
+# unet-censo-covid-frontend
 
 ## Project setup
 ```
