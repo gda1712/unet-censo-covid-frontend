@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <button @click="endSession" class="nav-link">Cerrar sesión</button>
+                        <button @click="endSession" class="nav-link btn btn-dark">Cerrar sesión</button>
                     </li>
                 </ul>
             </div>

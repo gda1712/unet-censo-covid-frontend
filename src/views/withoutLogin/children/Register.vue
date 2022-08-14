@@ -16,6 +16,14 @@
 
         <BaseInput v-if="!isFirstPage" v-model:value="address" label="Dirección" />
 
+        <div v-if="!isFirstPage" class="form-group mb-4">
+
+            <label class="form-label">Selecciona tu municipio</label>
+
+            <v-select v-model="municipalityId" name="disease" :options="municipalities" label="name"></v-select>
+
+        </div>
+
         <BaseInput v-if="!isFirstPage" v-model:value="phone" label="Teléfono fijo" />
 
         <BaseInput v-if="!isFirstPage" v-model:value="cellPhone" label="Teléfono celular" />
@@ -41,6 +49,7 @@
 import BaseInput from "@/components/BaseInput";
 import { useToast } from "vue-toastification";
 import { createUser } from "@/services/AuthServices";
+import { getMunicipalities } from "@/services/UserServices";
 
 export default {
     name: 'Register',
@@ -55,10 +64,13 @@ export default {
             address: "",
             phone: "",
             cellPhone: "",
+            municipalityId: "",
             isUnderage: true,
 
 
             isFirstPage: true,
+
+            municipalities: [],
         }
     },
 
@@ -94,7 +106,7 @@ export default {
                 phone: this.phone,
                 cellPhone: this.cellPhone,
                 address: this.address,
-                municipalityId: 28,
+                municipalityId: this.municipalityId.id,
                 isUnderage: this.isUnderage
             });
 
@@ -105,6 +117,19 @@ export default {
                 this.toast.error("Error en el registro");
             }
         }
+    },
+
+    async mounted() {
+        // load the Municipalities
+
+        const municipalities = await getMunicipalities({});
+
+        this.municipalities = municipalities.data.map(mun => {
+            return {
+                id: mun.id,
+                name: mun.attributes.name
+            }
+        });
     }
 
 }
