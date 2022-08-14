@@ -1,6 +1,8 @@
 # unet-censo-covid-frontend
 
 ## Project setup
+
+first create a .env file. You can use the .env.example
 ```
 npm install
 ```
