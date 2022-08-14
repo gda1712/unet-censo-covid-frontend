@@ -1,4 +1,4 @@
-# unet-censo-covir-frontend
+# unet-censo-covid-frontend
 
 ## Project setup
 ```
@@ -17,3 +17,14 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Desarrollado por los estudiantes:
+```
+Pedro José Soto Ayala 
+CI: 27.893.308
+```
+```
+Gabriel Diaz Andrade
+CI: 28.230.550
+```
